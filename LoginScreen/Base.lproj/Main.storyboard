@@ -30,12 +30,15 @@
                                     <fontDescription key="titleFontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="27"/>
                                     <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="LST-eh-hwv" kind="modal" modalPresentationStyle="fullScreen" id="MZz-ez-uCD"/>
+                                </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="X4K-t9-WpK">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="X4K-t9-WpK">
                                 <rect key="frame" x="15" y="448.5" width="384" height="39.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97p-7L-9Nu">
-                                        <rect key="frame" x="0.0" y="0.0" width="175" height="39.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="181" height="39.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Forgot user name?">
                                             <backgroundConfiguration key="background" cornerRadius="10"/>
@@ -44,7 +47,7 @@
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9b-mq-oBl">
-                                        <rect key="frame" x="209" y="0.0" width="175" height="39.5"/>
+                                        <rect key="frame" x="203" y="0.0" width="181" height="39.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Forgot password?">
                                             <backgroundConfiguration key="background" cornerRadius="10"/>
@@ -93,7 +96,66 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="15.942028985507248" y="80.357142857142847"/>
+            <point key="canvasLocation" x="42" y="50"/>
+        </scene>
+        <!--Welcome View Controller-->
+        <scene sceneID="57c-h0-71U">
+            <objects>
+                <viewController id="LST-eh-hwv" customClass="WelcomeViewController" customModule="LoginScreen" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XlG-e8-h81">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ieN-am-cxc">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome," textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26n-EZ-Gbm">
+                                <rect key="frame" x="150" y="254" width="114" height="35.5"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6F-n8-Ebg">
+                                <rect key="frame" x="150" y="309.5" width="114" height="35.5"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YVv-41-hQc">
+                                <rect key="frame" x="120" y="421" width="174" height="52.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YVv-41-hQc" secondAttribute="height" multiplier="73:22" id="igt-E3-gh5"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Log out">
+                                    <backgroundConfiguration key="background" cornerRadius="10"/>
+                                    <fontDescription key="titleFontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="27"/>
+                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="F5X-y8-6Be"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YVv-41-hQc" firstAttribute="top" secondItem="i6F-n8-Ebg" secondAttribute="bottom" constant="76" id="2sA-MY-ve1"/>
+                            <constraint firstItem="YVv-41-hQc" firstAttribute="centerX" secondItem="XlG-e8-h81" secondAttribute="centerX" id="ALq-MA-By0"/>
+                            <constraint firstItem="i6F-n8-Ebg" firstAttribute="top" secondItem="26n-EZ-Gbm" secondAttribute="bottom" constant="20" id="Abd-JJ-5AB"/>
+                            <constraint firstItem="F5X-y8-6Be" firstAttribute="trailing" secondItem="i6F-n8-Ebg" secondAttribute="trailing" constant="150" id="BJ6-fT-FqE"/>
+                            <constraint firstItem="26n-EZ-Gbm" firstAttribute="top" secondItem="F5X-y8-6Be" secondAttribute="top" constant="210" id="iQC-OW-huG"/>
+                            <constraint firstItem="26n-EZ-Gbm" firstAttribute="leading" secondItem="F5X-y8-6Be" secondAttribute="leading" constant="150" id="pHG-4J-fWM"/>
+                            <constraint firstItem="F5X-y8-6Be" firstAttribute="trailing" secondItem="26n-EZ-Gbm" secondAttribute="trailing" constant="150" id="v0r-rB-g6N"/>
+                            <constraint firstItem="i6F-n8-Ebg" firstAttribute="leading" secondItem="F5X-y8-6Be" secondAttribute="leading" constant="150" id="x53-KF-tZ2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2K6-wi-QFn"/>
+                    <connections>
+                        <outlet property="backgroundView" destination="ieN-am-cxc" id="RrV-RF-auX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fku-RM-PAq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="805.79710144927537" y="55.580357142857139"/>
         </scene>
     </scenes>
     <resources>

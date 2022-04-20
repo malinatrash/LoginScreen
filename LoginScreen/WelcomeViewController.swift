@@ -1,13 +1,13 @@
 //
-//  ViewController.swift
+//  WelcomeViewController.swift
 //  LoginScreen
 //
-//  Created by Pavel Naumov on 19.04.2022.
+//  Created by Pavel Naumov on 20.04.2022.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var backgroundView: UIView!
     
@@ -22,12 +22,9 @@ class LoginViewController: UIViewController {
             UIColor.cyan.cgColor
         ]
         backgroundView.layer.addSublayer(gradient)
-        
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super .touchesBegan(touches, with: event)
-    }
-    
-}
 
+    
+
+}
