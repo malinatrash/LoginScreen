@@ -10,6 +10,9 @@ import UIKit
 class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    
+    var username: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +25,11 @@ class WelcomeViewController: UIViewController {
             UIColor.cyan.cgColor
         ]
         backgroundView.layer.addSublayer(gradient)
+        
+        userNameLabel.text = username
     }
     
-
+    
     
 
 }
