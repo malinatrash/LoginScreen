@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var backgroundView: UIView!
     
@@ -16,11 +16,14 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
-    let userName = "username"
-    let password = "password"
+    private let userName = "username"
+    private let password = "password"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userNameTF.delegate = self
+        passwordTF.delegate = self
         
         let gradient = CAGradientLayer()
         gradient.frame = view.bounds
@@ -35,6 +38,24 @@ class LoginViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
         tapGesture.cancelsTouchesInView = false
         
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+        }))
+        self.present(alert, animated: true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        textField.resignFirstResponder()
+        if textField == userNameTF {
+            passwordTF.becomeFirstResponder()
+        } else {
+            loginButtonPressed()
+        }
+        return true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -52,41 +73,16 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func forgotUserNameAction() {
-        let alert = UIAlertController(title: "You forgot user name?", message: "Your user name – username!", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-            NSLog("The \"OK\" alert occured.")
-        }))
-        self.present(alert, animated: true, completion: nil)
+        showAlert(title: "You forgot user name?", message: "Your user name: username!")
     }
     
     @IBAction func forgotPasswordAction() {
-        let alert = UIAlertController(title: "You forgot password?", message: "Your password – password!", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-            NSLog("The \"OK\" alert occured.")
-        }))
-        self.present(alert, animated: true, completion: nil)
+        showAlert(title: "You forgot password?", message: "Your user password: password!")
     }
     
     @IBAction func loginButtonPressed() {
         if userNameTF.text != userName || passwordTF.text != password {
-            let alert = UIAlertController(title: "Wrong username or password", message: "Please, try again", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-                NSLog("The \"OK\" alert occured.")
-            }))
-            self.present(alert, animated: true, completion: nil)
+            showAlert(title: "Wrong username or password", message: "Please, try again")
         }
     }
 }
-
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tapGesture = UITapGestureRecognizer(target: self,
-                         action: #selector(hideKeyboard))
-        view.addGestureRecognizer(tapGesture)
-    }
-
-    @objc func hideKeyboard() {
-        view.endEditing(true)
-    }
-}
-
