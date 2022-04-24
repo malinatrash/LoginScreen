@@ -83,6 +83,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginButtonPressed() {
         if userNameTF.text != userName || passwordTF.text != password {
             showAlert(title: "Wrong username or password", message: "Please, try again")
+        } else {
+            performSegue(withIdentifier: "goToWelcomeScreen", sender: self)
         }
     }
 }

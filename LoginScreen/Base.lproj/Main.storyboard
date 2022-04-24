@@ -32,7 +32,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="loginButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ggq-iV-iIc"/>
-                                    <segue destination="LST-eh-hwv" kind="show" id="ue9-7g-gwC"/>
+                                    <segue destination="LST-eh-hwv" kind="show" identifier="goToWelcomeScreen" id="ue9-7g-gwC"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="X4K-t9-WpK">
