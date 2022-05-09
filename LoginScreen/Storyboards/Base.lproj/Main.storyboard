@@ -111,6 +111,8 @@
         <!--Welcome View Controller-->
         <scene sceneID="57c-h0-71U">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fku-RM-PAq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="02v-VB-KIZ" userLabel="Exit" sceneMemberID="exit"/>
                 <viewController modalPresentationStyle="fullScreen" id="LST-eh-hwv" customClass="WelcomeViewController" customModule="LoginScreen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XlG-e8-h81">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -121,13 +123,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome," textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26n-EZ-Gbm">
-                                <rect key="frame" x="150" y="254" width="114" height="30"/>
+                                <rect key="frame" x="16" y="254" width="382" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6F-n8-Ebg">
-                                <rect key="frame" x="150" y="304" width="114" height="30"/>
+                                <rect key="frame" x="16" y="304" width="382" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -152,13 +154,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="YVv-41-hQc" firstAttribute="top" secondItem="i6F-n8-Ebg" secondAttribute="bottom" constant="76" id="2sA-MY-ve1"/>
+                            <constraint firstItem="i6F-n8-Ebg" firstAttribute="leading" secondItem="F5X-y8-6Be" secondAttribute="leading" constant="16" id="5TE-fc-MQQ"/>
                             <constraint firstItem="YVv-41-hQc" firstAttribute="centerX" secondItem="XlG-e8-h81" secondAttribute="centerX" id="ALq-MA-By0"/>
                             <constraint firstItem="i6F-n8-Ebg" firstAttribute="top" secondItem="26n-EZ-Gbm" secondAttribute="bottom" constant="20" id="Abd-JJ-5AB"/>
-                            <constraint firstItem="F5X-y8-6Be" firstAttribute="trailing" secondItem="i6F-n8-Ebg" secondAttribute="trailing" constant="150" id="BJ6-fT-FqE"/>
+                            <constraint firstItem="F5X-y8-6Be" firstAttribute="trailing" secondItem="i6F-n8-Ebg" secondAttribute="trailing" constant="16" id="RuI-Ze-FWq"/>
+                            <constraint firstItem="F5X-y8-6Be" firstAttribute="trailing" secondItem="26n-EZ-Gbm" secondAttribute="trailing" constant="16" id="aah-2v-mxB"/>
                             <constraint firstItem="26n-EZ-Gbm" firstAttribute="top" secondItem="F5X-y8-6Be" secondAttribute="top" constant="210" id="iQC-OW-huG"/>
-                            <constraint firstItem="26n-EZ-Gbm" firstAttribute="leading" secondItem="F5X-y8-6Be" secondAttribute="leading" constant="150" id="pHG-4J-fWM"/>
-                            <constraint firstItem="F5X-y8-6Be" firstAttribute="trailing" secondItem="26n-EZ-Gbm" secondAttribute="trailing" constant="150" id="v0r-rB-g6N"/>
-                            <constraint firstItem="i6F-n8-Ebg" firstAttribute="leading" secondItem="F5X-y8-6Be" secondAttribute="leading" constant="150" id="x53-KF-tZ2"/>
+                            <constraint firstItem="26n-EZ-Gbm" firstAttribute="leading" secondItem="F5X-y8-6Be" secondAttribute="leading" constant="16" id="rnJ-k5-0GL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2K6-wi-QFn"/>
@@ -167,8 +169,6 @@
                         <outlet property="userNameLabel" destination="i6F-n8-Ebg" id="o6w-tR-8lF"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fku-RM-PAq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="02v-VB-KIZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="805.79710144927537" y="55.580357142857139"/>
         </scene>

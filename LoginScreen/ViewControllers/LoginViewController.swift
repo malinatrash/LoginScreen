@@ -16,8 +16,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var loginButton: UIButton!
     
-    private let userName = "username"
-    private let password = "password"
+    let user = User.getUserData()
+    
+//    private let userName = "username"
+//    private let password = "password"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +42,33 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    private func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-            NSLog("The \"OK\" alert occured.")
-        }))
-        self.present(alert, animated: true)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
+        welcomeVC.name = "\(user.person.name ) \(user.person.surname)"
+    }
+    
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        guard segue.source is WelcomeViewController else { return }
+        
+        userNameTF.text = ""
+        passwordTF.text = ""
+    }
+    
+    @IBAction func forgotUserNameAction() {
+        showAlert(title: "You forgot user name?", message: "Your user name: user!")
+    }
+    
+    @IBAction func forgotPasswordAction() {
+        showAlert(title: "You forgot password?", message: "Your user password: password!")
+    }
+    
+    @IBAction func loginButtonPressed() {
+        if userNameTF.text != user.login || passwordTF.text != user.password {
+            showAlert(title: "Wrong username or password", message: "Please, try again")
+        } else {
+            performSegue(withIdentifier: "goToWelcomeScreen", sender: self)
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool{
@@ -58,33 +81,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        welcomeVC.username = userNameTF.text
-    }
-    
-    @IBAction func unwind(for segue: UIStoryboardSegue) {
-        guard segue.source is WelcomeViewController else { return }
-        
-        userNameTF.text = ""
-        passwordTF.text = ""
-        
-    }
-    
-    @IBAction func forgotUserNameAction() {
-        showAlert(title: "You forgot user name?", message: "Your user name: username!")
-    }
-    
-    @IBAction func forgotPasswordAction() {
-        showAlert(title: "You forgot password?", message: "Your user password: password!")
-    }
-    
-    @IBAction func loginButtonPressed() {
-        if userNameTF.text != userName || passwordTF.text != password {
-            showAlert(title: "Wrong username or password", message: "Please, try again")
-        } else {
-            performSegue(withIdentifier: "goToWelcomeScreen", sender: self)
-        }
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+        }))
+        self.present(alert, animated: true)
     }
 }

@@ -12,21 +12,22 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var userNameLabel: UILabel!
     
-    var username: String!
+    var name: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let gradient = CAGradientLayer()
         gradient.frame = view.bounds
-        gradient.colors = [
+        gradient.colors =
+        [
             UIColor.red.cgColor,
             UIColor.purple.cgColor,
             UIColor.cyan.cgColor
         ]
         backgroundView.layer.addSublayer(gradient)
         
-        userNameLabel.text = username
+        userNameLabel.text = name
     }
     
     
