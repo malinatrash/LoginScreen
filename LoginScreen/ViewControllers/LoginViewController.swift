@@ -56,11 +56,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func forgotUserNameAction() {
-        showAlert(title: "You forgot user name?", message: "Your user name: user!")
+        showAlert(title: "You forgot user name?", message: "Your user name: \(user.login)!")
     }
     
     @IBAction func forgotPasswordAction() {
-        showAlert(title: "You forgot password?", message: "Your user password: password!")
+        showAlert(title: "You forgot password?", message: "Your user password: \(user.password)!")
     }
     
     @IBAction func loginButtonPressed() {
