@@ -9,6 +9,7 @@ import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
+    // MARK: - IB Outlets
     @IBOutlet weak var backgroundView: UIView!
     
     @IBOutlet weak var userNameTF: UITextField!
@@ -16,7 +17,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var loginButton: UIButton!
     
-    let user = User.getUserData()
+    // MARK: - Private properties
+    private let user = User.getUserData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +41,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let tabBarController = segue.destination as? UITabBarController else { return }
@@ -56,7 +59,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
+    // MARK: - IBActions
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         guard segue.source is WelcomeViewController else { return }
         
@@ -80,6 +83,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // MARK: - Public method
     func textFieldShouldReturn(_ textField: UITextField) -> Bool{
         textField.resignFirstResponder()
         if textField == userNameTF {
@@ -90,6 +94,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    // MARK: - Private method
     private func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in

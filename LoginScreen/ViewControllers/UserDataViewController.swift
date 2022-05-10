@@ -9,11 +9,13 @@ import UIKit
 
 class UserDataViewController: UIViewController {
 
+    // MARK: - IB Outlets
     @IBOutlet weak var backgroundView: UIView!
     
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var userProfilePhotoUIImage: UIImageView!
     
+    // MARK: - Public properties
     var describe: String!
     var userProfilePhoto: UIImage!
     
