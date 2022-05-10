@@ -21,7 +21,7 @@ class WelcomeViewController: UIViewController {
         gradient.frame = view.bounds
         gradient.colors =
         [
-            UIColor.red.cgColor,
+            UIColor.systemPink.cgColor,
             UIColor.purple.cgColor,
             UIColor.cyan.cgColor
         ]

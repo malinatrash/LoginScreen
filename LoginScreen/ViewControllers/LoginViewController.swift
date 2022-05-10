@@ -18,9 +18,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     let user = User.getUserData()
     
-//    private let userName = "username"
-//    private let password = "password"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,9 +41,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        welcomeVC.name = "\(user.person.name ) \(user.person.surname)"
+        guard let tabBarController = segue.destination as? UITabBarController else { return }
+        guard let viewControllers = tabBarController.viewControllers else { return }
+        
+        for viewController in viewControllers {
+            if let welcomeVC = viewController as? WelcomeViewController {
+                welcomeVC.name = "\(user.person.name) \(user.person.surname)"
+            } else if let navigationVC = viewController as? UINavigationController {
+                let userDataVC = navigationVC.topViewController as! UserDataViewController
+                userDataVC.describe = user.person.description
+                userDataVC.userProfilePhoto = user.person.profilePhoto
+                userDataVC.title = "\(user.person.name) \(user.person.surname)"
+            }
+        }
     }
+    
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         guard segue.source is WelcomeViewController else { return }
