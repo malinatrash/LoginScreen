@@ -50,7 +50,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             } else if let navigationVC = viewController as? UINavigationController {
                 let userDataVC = navigationVC.topViewController as! UserDataViewController
                 userDataVC.describe = user.person.description
-                userDataVC.userProfilePhoto = user.person.profilePhoto
+                userDataVC.userProfilePhoto = UIImage(named: user.person.profilePhoto)
                 userDataVC.title = "\(user.person.name) \(user.person.surname)"
             }
         }
